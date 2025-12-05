@@ -1,99 +1,117 @@
 import Link from "next/link";
 import Image from "next/image";
+import { role } from "@/lib/data";
 
 const menuItems = [
   {
     title: "MENU",
     items: [
       {
-        icon: "home.svg",
+        icon: "/home.svg",
         label: "Home",
-        href: "/"
+        href: "/",
+        visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "teacher.svg",
+        icon: "/teacher.svg",
         label: "Teachers",
-        href: "/"
+        href: "/list/teachers",
+        visible: ["admin", "teacher"],
       },
       {
-        icon: "student.svg",
+        icon: "/student.svg",
         label: "Students",
-        href: "/"
+        href: "/list/students",
+        visible: ["admin", "teacher"],
       },
       {
-        icon: "parent.svg",
+        icon: "/parent.svg",
         label: "Parents",
-        href: "/"
+        href: "/list/parents",
+        visible: ["admin", "teacher"],
       },
       {
-        icon: "subject.svg",
+        icon: "/subject.svg",
         label: "Subjects",
-        href: "/"
+        href: "/list/subjects",
+        visible: ["admin"],
       },
       {
-        icon: "class.svg",
+        icon: "/class.svg",
         label: "Classes",
-        href: "/"
+        href: "/list/classes",
+        visible: ["admin", "teacher"],
       },
       {
-        icon: "lesson.svg",
+        icon: "/lesson.svg",
         label: "Lessons",
-        href: "/"
+        href: "/list/lessons",
+        visible: ["admin", "teacher"],
       },
       {
-        icon: "exam.svg",
+        icon: "/exam.svg",
         label: "Exams",
-        href: "/"
+        href: "/list/exams",
+        visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "assignment.svg",
+        icon: "/assignment.svg",
         label: "Assignments",
-        href: "/"
+        href: "/list/assignments",
+        visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "result.svg",
+        icon: "/result.svg",
         label: "Results",
-        href: "/"
+        href: "/list/results",
+        visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "attendance.svg",
+        icon: "/attendance.svg",
         label: "Attendance",
-        href: "/"
+        href: "/list/attendance",
+        visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "calendar.svg",
+        icon: "/calendar.svg",
         label: "Events",
-        href: "/"
+        href: "/list/events",
+        visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "message.svg",
+        icon: "/message.svg",
         label: "Messages",
-        href: "/"
+        href: "/list/messages",
+        visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "announcement.svg",
+        icon: "/announcement.svg",
         label: "Announcements",
-        href: "/"
+        href: "/list/announcements",
+        visible: ["admin", "teacher", "student", "parent"],
       },
-    ]
+    ],
   },
   {
     title: "OTHER",
     items: [
       {
-        icon: "profile.svg",
+        icon: "/profile.svg",
         label: "Profile",
-        href: "/"
+        href: "/profile",
+        visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "settings.svg",
+        icon: "/settings.svg",
         label: "Settings",
-        href: "/"
+        href: "/settings",
+        visible: ["admin", "teacher", "student", "parent"],
       },
       {
-        icon: "logout.svg",
+        icon: "/logout.svg",
         label: "Logout",
-        href: "/"
+        href: "/logout",
+        visible: ["admin", "teacher", "student", "parent"],
       },
     ],
   },
@@ -106,12 +124,22 @@ const Menu = () => {
         menuItems.map((i) => (
           <div className="flex flex-col gap-2" key={i.title}>
             <span className="hidden lg:block text-gray-400 font-light my-2">{i.title}</span>
-            {i.items.map((item) => (
+            {/* {i.items.map((item) => (
               <Link href={item.href} key={item.label} className="flex gap-4 items-center justify-center lg:justify-start text-gray-500 py-2">
                 <Image src={item.icon} alt={`${item.label}-logo`} width={20} height={20} className="opacity-70" />
                 <span className="hidden lg:block">{item.label}</span>
               </Link>
-            ))}
+            ))} */}
+            {i.items.map((item) => {
+              if (item.visible.includes(role)) {
+                return (
+                  <Link href={item.href} key={item.label} className="flex gap-4 items-center justify-center lg:justify-start text-gray-500 py-2 rounded-md hover:bg-primary/20 py-2 md:px-2">
+                    <Image src={item.icon} alt={`${item.label}-logo`} width={20} height={20} className="opacity-70" />
+                    <span className="hidden lg:block">{item.label}</span>
+                  </Link>
+                )
+              }
+            })}
           </div>
         ))
       }
