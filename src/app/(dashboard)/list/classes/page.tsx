@@ -4,6 +4,7 @@ import TableSearch from "@/app/components/TableSearch";
 import Image from "next/image";
 import Link from "next/link";
 import { role, classesData } from "@/lib/data";
+import FormModal from "@/app/components/FormModal";
 
 type Class = {
   id: number;
@@ -45,15 +46,11 @@ const ClassesListPage = () => {
       <td className="hidden md:table-cell">{item.supervisor}</td>
       <td>
         <div className="flex items-center gap-2">
-          <Link href={`/list/teachers/${item.id}`}>
-            <button className="size-7 rounded-full bg-secondary/60 flex items-center justify-center">
-              <Image src="/view.svg" alt="view-logo" width={16} height={16} className="opacity-70" />
-            </button>
-          </Link>
           {role === "admin" && (
-            <button className="size-7 rounded-full bg-primary/30 flex items-center justify-center">
-              <Image src="/delete.svg" alt="view-logo" width={16} height={16} className="opacity-70" />
-            </button>
+            <>
+              <FormModal table="class" reqType="update" data={item} />
+              <FormModal table="class" reqType="delete" id={item.id} />
+            </>
           )}
         </div>
       </td>
@@ -74,9 +71,9 @@ const ClassesListPage = () => {
             <button className="size-8 flex items-center justify-center rounded-full bg-primary/40">
               <Image src="/sort.svg" alt="filter-logo" width={16} height={16} />
             </button>
-            <button className="size-8 flex items-center justify-center rounded-full bg-primary/40">
-              <Image src="/plus.svg" alt="filter-logo" width={16} height={16} />
-            </button>
+            {role === "admin" && (
+              <FormModal table="class" reqType="create" />
+            )}
           </div>
         </div>
       </div>
