@@ -1,5 +1,6 @@
 import Announcements from '@/app/components/Announcements';
 import BigCalendar from '@/app/components/BigCalendar';
+import FormModal from '@/app/components/FormModal';
 import Performance from '@/app/components/Performance';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,7 +15,27 @@ const SingleStudentPage = () => {
               <Image src="/profile.svg" alt="user-image" width={144} height={144} className='size-36 rounded-full object-cover opacity-70' />
             </div>
             <div className="w-2/3 flex flex-col justify-between gap-4">
-              <h1 className='text-xl font-semibold'>John Doe</h1>
+              <div className="flex items-center gap-4">
+                <h1 className='text-xl font-semibold'>John Doe</h1>
+                <FormModal
+                  table="student"
+                  reqType="update"
+                  data={{
+                    id: 1,
+                    username: "deanguerrero",
+                    email: "deanguerrero@gmail.com",
+                    password: "password",
+                    firstName: "Dean",
+                    lastName: "Guerrero",
+                    phone: "+1 234 567 89",
+                    address: "1234 Main St, Anytown, USA",
+                    bloodType: "A+",
+                    dateOfBirth: "2000-01-01",
+                    sex: "male",
+                    img: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                  }}
+                />
+              </div>
               <p className='text-sm text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, accusantium!</p>
               <div className="flex items-center justify-between gap-2 flex-wrap text-xs font-medium">
                 <div className="w-full md:w-1/3 lg:w-full 2xl:w-1/3 flex items-center gap-2">

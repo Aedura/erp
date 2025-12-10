@@ -21,7 +21,7 @@ const schema = z.object({
 
 type Inputs = z.infer<typeof schema>;
 
-const TeacherForm = ({reqType, data}: { reqType: "create" | "update"; data?: any }) => {
+const StudentForm = ({reqType, data}: { reqType: "create" | "update"; data?: any }) => {
 
   const {
       register,
@@ -36,7 +36,7 @@ const TeacherForm = ({reqType, data}: { reqType: "create" | "update"; data?: any
     })
 
   return <form onSubmit={onSubmit} className='flex flex-col gap-4'>
-    <h1 className='text-xl font-semibold'>{reqType === "create" ? "Create a new" : "Update"} teacher</h1>
+    <h1 className='text-xl font-semibold'>{reqType === "create" ? "Create a new" : "Update"} student</h1>
     <span className='text-xs text-gray-500 font-medium'>Authentication Information</span>
     <div className="flex items-center justify-center gap-6 flex-wrap">
       <InputField label="Username" name='username' defaultVal={data?.username} register={register} error={errors?.username} />
@@ -73,4 +73,4 @@ const TeacherForm = ({reqType, data}: { reqType: "create" | "update"; data?: any
     <button className="text-sm font-semibold py-1 px-3 cursor-pointer rounded-sm bg-primary/90 text-white border hover:bg-primary transition">{reqType === "create" ? "Create" : "Update"}</button>
   </form>
 }
-export default TeacherForm
+export default StudentForm

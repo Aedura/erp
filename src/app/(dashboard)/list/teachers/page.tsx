@@ -60,9 +60,13 @@ const TeachersListPage = () => {
       <td className="hidden lg:table-cell">{item.address}</td>
       <td>
         <div className="flex items-center gap-2">
+          <Link href={`/list/teachers/${item.id}`}>
+            <button className="size-7 rounded-full bg-secondary/60 flex items-center justify-center">
+              <Image src="/update.svg" alt="view-logo" width={16} height={16} className="opacity-70" />
+            </button>
+          </Link>
           {role === "admin" && (
             <>
-              <FormModal table="teacher" reqType="update" data={item} />
               <FormModal table="teacher" reqType="delete" id={item.id} />
             </>
           )}
