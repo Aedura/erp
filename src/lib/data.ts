@@ -526,14 +526,14 @@ export const examsData = [
     subject: "Math",
     class: "1A",
     teacher: "Martha Morris",
-    date: "2025-01-01",
+    date: "2025-01-01", // YYYY-MM-DD
   },
   {
     id: 2,
     subject: "English",
     class: "2A",
     teacher: "Randall Garcia",
-    date: "2025-01-01",
+    date: "2025-12-11",
   },
   {
     id: 3,

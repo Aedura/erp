@@ -12,45 +12,45 @@ const StudentForm = dynamic(() => import("./forms/StudentForm"), {
   loading: () => <h1>Loading...</h1>,
 });
 
-// const ParentForm = dynamic(() => import("./forms/ParentForm"), {
-//   loading: () => <h1>Loading...</h1>,
-// });
+const ParentForm = dynamic(() => import("./forms/ParentForm"), {
+  loading: () => <h1>Loading...</h1>,
+});
 
-// const SubjectForm = dynamic(() => import("./forms/SubjectForm"), {
-//   loading: () => <h1>Loading...</h1>,
-// });
+const SubjectForm = dynamic(() => import("./forms/SubjectForm"), {
+  loading: () => <h1>Loading...</h1>,
+});
 
-// const ClassForm = dynamic(() => import("./forms/ClassForm"), {
-//   loading: () => <h1>Loading...</h1>,
-// });
+const ClassForm = dynamic(() => import("./forms/ClassForm"), {
+  loading: () => <h1>Loading...</h1>,
+});
 
-// const LessonForm = dynamic(() => import("./forms/LessonForm"), {
-//   loading: () => <h1>Loading...</h1>,
-// });
+const LessonForm = dynamic(() => import("./forms/LessonForm"), {
+  loading: () => <h1>Loading...</h1>,
+});
 
-// const ExamForm = dynamic(() => import("./forms/ExamForm"), {
-//   loading: () => <h1>Loading...</h1>,
-// });
+const ExamForm = dynamic(() => import("./forms/ExamForm"), {
+  loading: () => <h1>Loading...</h1>,
+});
 
-// const AssignmentForm = dynamic(() => import("./forms/AssignmentForm"), {
-//   loading: () => <h1>Loading...</h1>,
-// });
+const AssignmentForm = dynamic(() => import("./forms/AssignmentForm"), {
+  loading: () => <h1>Loading...</h1>,
+});
 
-// const ResultForm = dynamic(() => import("./forms/ResultForm"), {
-//   loading: () => <h1>Loading...</h1>,
-// });
+const ResultForm = dynamic(() => import("./forms/ResultForm"), {
+  loading: () => <h1>Loading...</h1>,
+});
 
 // const AttendanceForm = dynamic(() => import("./forms/AttendanceForm"), {
 //   loading: () => <h1>Loading...</h1>,
 // });
 
-// const EventForm = dynamic(() => import("./forms/EventForm"), {
-//   loading: () => <h1>Loading...</h1>,
-// });
+const EventForm = dynamic(() => import("./forms/EventForm"), {
+  loading: () => <h1>Loading...</h1>,
+});
 
-// const AnnouncementForm = dynamic(() => import("./forms/AnnouncementForm"), {
-//     loading: () => <h1>Loading...</h1>,
-// });
+const AnnouncementForm = dynamic(() => import("./forms/AnnouncementForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
 
 
 const forms: {
@@ -58,16 +58,16 @@ const forms: {
 } = {
   teacher: (type, data) => <TeacherForm reqType={type} data={data} />,
   student: (type, data) => <StudentForm reqType={type} data={data} />,
-  // parent: (type, data) => <ParentForm reqType={type} data={data} />,
-  // subject: (type, data) => <SubjectForm reqType={type} data={data} />,
-  // class: (type, data) => <ClassForm reqType={type} data={data} />,
-  // lesson: (type, data) => <LessonForm reqType={type} data={data} />,
-  // exam: (type, data) => <ExamForm reqType={type} data={data} />,
-  // assignment: (type, data) => <AssignmentForm reqType={type} data={data} />,
-  // result: (type, data) => <ResultForm reqType={type} data={data} />,
+  parent: (type, data) => <ParentForm reqType={type} data={data} />,
+  subject: (type, data) => <SubjectForm reqType={type} data={data} />,
+  class: (type, data) => <ClassForm reqType={type} data={data} />,
+  lesson: (type, data) => <LessonForm reqType={type} data={data} />,
+  exam: (type, data) => <ExamForm reqType={type} data={data} />,
+  assignment: (type, data) => <AssignmentForm reqType={type} data={data} />,
+  result: (type, data) => <ResultForm reqType={type} data={data} />,
   // attendance: (type, data) => <AttendanceForm reqType={type} data={data} />,
-  // event: (type, data) => <EventForm reqType={type} data={data} />,
-  // announcement: (type, data) => <AnnouncementForm reqType={type} data={data} />,
+  event: (type, data) => <EventForm reqType={type} data={data} />,
+  announcement: (type, data) => <AnnouncementForm reqType={type} data={data} />,
 
 }
 
