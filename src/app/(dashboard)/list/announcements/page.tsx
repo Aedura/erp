@@ -6,7 +6,7 @@ import Link from "next/link";
 import { role, announcementsData } from "@/lib/data";
 import FormModal from "@/app/components/FormModal";
 
-type Event = {
+type Announcement = {
   id: number;
   title: string;
   class: string;
@@ -30,7 +30,7 @@ const coloumns = [
 
 const AnnouncementListPage = () => {
 
-  const renderRow = (item: Event) => (
+  const renderRow = (item: Announcement) => (
     <tr key={item.id} className="bg-background even:bg-backgroundSecondary/50 text-sm hover:bg-primary/10">
       <td className="flex items-center gap-4 p-4">
         <div className="flex flex-col">

@@ -6,7 +6,7 @@ import { z } from 'zod';
 import InputField from '../InputField';
 
 const schema = z.object({
-  subject: z.string().min(1, { message: 'Password must be atleast 8 characters long.' }),
+  subject: z.string().min(1, { message: 'Subject name is required.' }),
   teacher: z.string().min(1, { message: "Teacher's name is required." }),
 });
 

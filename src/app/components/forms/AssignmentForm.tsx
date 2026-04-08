@@ -8,7 +8,7 @@ const schema = z.object({
   subject: z.string().min(2, { message: 'Subject name is required.' }),
   class: z.string().min(2, { message: 'Class Name must be atleast 2 charcters long (eg: 1A, 5B, 10C etc)' }).max(3, { message: 'Class Name must be less than 3 charcters (eg: 1A, 5B, 10C etc)' }),
   teacher: z.string().min(1, { message: 'Class Supervisor is required.' }),
-  dueDate: z.iso.date({ message: 'Date is required.' }),
+  dueDate: z.string().min(1, "Date is required"),
 });
 
 type Inputs = z.infer<typeof schema>;

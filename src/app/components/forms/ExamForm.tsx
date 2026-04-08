@@ -8,12 +8,12 @@ const schema = z.object({
   subject: z.string().min(2, { message: 'Subject name is required.' }),
   class: z.string().min(2, { message: 'Class Name must be atleast 2 charcters long (eg: 1A, 5B, 10C etc)' }).max(3, { message: 'Class Name must be less than 3 charcters (eg: 1A, 5B, 10C etc)' }),
   teacher: z.string().min(1, { message: 'Class Supervisor is required.' }),
-  date: z.iso.date({ message: 'Date is required.' }),
+  date: z.string().min(1, "Date is required"),
 });
 
 type Inputs = z.infer<typeof schema>;
 
-const LessonForm = ({reqType, data}: { reqType: "create" | "update"; data?: any }) => {
+const ExamForm = ({reqType, data}: { reqType: "create" | "update"; data?: any }) => {
 
   const {
       register,
@@ -65,4 +65,4 @@ const LessonForm = ({reqType, data}: { reqType: "create" | "update"; data?: any 
     <button className="text-sm font-semibold py-1 px-3 cursor-pointer rounded-sm bg-primary/90 text-white border hover:bg-primary transition">{reqType === "create" ? "Create" : "Update"}</button>
   </form>
 }
-export default LessonForm
+export default ExamForm

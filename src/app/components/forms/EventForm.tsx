@@ -7,9 +7,9 @@ import InputField from '../InputField';
 const schema = z.object({
   title: z.string().min(2, { message: 'Title is required.' }),
   class: z.string().min(2, { message: 'Class Name must be atleast 2 charcters long (eg: 1A, 5B, 10C etc)' }).max(3, { message: 'Class Name must be less than 3 charcters (eg: 1A, 5B, 10C etc)' }),
-  date: z.iso.date({ message: 'Date is required.' }),
-  startTime: z.iso.time({ message: 'Start time is required.' }),
-  endTime: z.iso.time({ message: 'End time is required.' }),
+  date: z.string().min(1, "Date is required"),
+  startTime: z.string().min(1, "Time is required"),
+  endTime: z.string().min(1, "Time is required"),
 });
 
 type Inputs = z.infer<typeof schema>;
